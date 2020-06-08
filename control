@@ -1,0 +1,18 @@
+Source: zmat
+Maintainer: Qianqian Fang <fangqq@gmail.com>
+Section: utility
+Priority: optional
+Standards-Version: 0.9.8
+Build-Depends: gcc, zlib1g-dev
+
+Package: zmat
+Architecture: any
+Depends: zlib1g
+Description: ZMat is a portable C library to enable easy-to-use data compression
+ and decompression (such as zlib/gzip/lzma/lzip/lz4/lz4hc algorithms)
+ and base64 encoding/decoding in an application.
+ It is fast and compact, can process a large array within a fraction
+ of a second. Among the supported compression methods, lz4 is the
+ fastest for compression/decompression; lzma is the slowest but has
+ the highest compression ratio; zlib/gzip have the best balance
+ between speed and compression time.
