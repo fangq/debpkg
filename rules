@@ -1,3 +1,31 @@
 #!/usr/bin/make -f
+# export DH_VERBOSE =1
+
 %:
-	dh $@
+	+dh $@
+
+build-arch:: build-static build-mex
+
+build-static:
+	$(MAKE) lib
+
+build-mex:
+	$(MAKE) oct
+
+override_dh_auto_build:
+	$(MAKE) dll
+
+override_dh_installchangelogs:
+	dh_installchangelogs ChangeLog.txt
+
+override_dh_auto_install:
+	install -d debian/zmat-dev/usr/include;
+	install include/zmatlib.h debian/zmat-dev/usr/include;
+	install fortran90/zmatlib.f90 debian/zmat-dev/usr/include;
+
+	set -e; arch=$$(dpkg-architecture -qDEB_HOST_MULTIARCH); \
+	install -d debian/zmat/usr/lib/$$arch; \
+	mv lib/libzmat.so debian/zmat/usr/lib/$$arch/libzmat.so.1; \
+	ln -s debian/zmat/usr/lib/$$arch/libzmat.so.1 debian/zmat/usr/lib/$$arch/libzmat.so
+
+. PHONY : build-static build-mex

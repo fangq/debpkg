@@ -1,14 +1,18 @@
 Source: zmat
 Maintainer: Qianqian Fang <fangqq@gmail.com>
-Section: utility
+Section: libs
 Priority: optional
-Standards-Version: 0.9.8
-Build-Depends: gcc, zlib1g-dev
+Standards-Version: 3.9.8
+Build-Depends: debhelper (>= 8.1.3~), zlib1g-dev
+Homepage: https://github.com/fangq/zmat
 
 Package: zmat
 Architecture: any
+Multi-Arch: same
 Depends: zlib1g
-Description: ZMat is a portable C library to enable easy-to-use data compression
+Provides: libzmat
+Description: compression library - runtime
+ ZMat is a portable C library to enable easy-to-use data compression
  and decompression (such as zlib/gzip/lzma/lzip/lz4/lz4hc algorithms)
  and base64 encoding/decoding in an application.
  It is fast and compact, can process a large array within a fraction
@@ -16,3 +20,27 @@ Description: ZMat is a portable C library to enable easy-to-use data compression
  fastest for compression/decompression; lzma is the slowest but has
  the highest compression ratio; zlib/gzip have the best balance
  between speed and compression time.
+
+Package: zmat-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: zmat (= ${binary:Version})
+Provides: libzmat-dev
+Description: compression library - development
+ The zmat-dev package provides the headers files and tools you may need to
+ develop applications using zmat.
+
+Package: octave-zmat
+Architecture: any
+Multi-Arch: same
+Depends: ${octave:Depends}
+Description: in-memory data compression for Octave
+ ZMat is a portable mex function to enable zlib/gzip/lzma/lzip/lz4/lz4hc 
+ based data compression/decompression and base64 encoding/decoding support 
+ in MATLAB and GNU Octave. It is fast and compact, can process a large 
+ array within a fraction of a second. Among the 6 supported compression 
+ methods, lz4 is the fastest for compression/decompression; lzma is the 
+ slowest but has the highest compression ratio; zlib/gzip have the best 
+ balance between speed and compression time.
+

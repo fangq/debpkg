@@ -1,0 +1,54 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: zmat
+Upstream-Contact: fangqq@gmail.com
+Source: https://github.com/fangq/zmat
+Comment:  ZMat is a portable C library to enable easy-to-use data compression
+ and decompression (such as zlib/gzip/lzma/lzip/lz4/lz4hc algorithms)
+ and base64 encoding/decoding in an application.
+ It is fast and compact, can process a large array within a fraction
+ of a second. Among the supported compression methods, lz4 is the
+ fastest for compression/decompression; lzma is the slowest but has
+ the highest compression ratio; zlib/gzip have the best balance
+ between speed and compression time.
+
+Files-Excluded:
+  private/*
+  octave/*
+
+Files: *
+Copyright: 2019-2020 Qianqian Fang
+License: GPL-3+
+
+Files: src/lz4/*
+Copyright: 2011-present, Yann Collet.
+License: BSD-2-clause
+
+Files: src/easylzma/*
+Copyright: 2009 Lloyd Hilaiel (lloyd)
+License: public-domain
+
+Files: src/easylzma/pavlov/*
+Copyright: 2008 Igor Pavlov
+License: public-domain
+
+License: GPL-3+
+ This program is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public
+ License as published by the Free Software Foundation; either
+ version 3 of the License, or (at your option) any later
+ version.
+ .
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.
+ .
+ You should have received a copy of the GNU General Public
+ License along with this package; if not, write to the Free
+ Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
